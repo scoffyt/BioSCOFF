@@ -76,7 +76,7 @@ function applyProfileContent() {
   }
   
   if (profile.backgroundVideoId) {
-    backgroundVideo.src = `https://www.youtube-nocookie.com/embed/${profile.backgroundVideoId}?autoplay=1&controls=0&showinfo=0&modestbranding=1&loop=1&playlist=${profile.backgroundVideoId}&playsinline=1&rel=0&mute=1&enablejsapi=1`;
+    backgroundVideo.src = `https://www.youtube-nocookie.com/embed/${profile.backgroundVideoId}?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=${profile.backgroundVideoId}&playsinline=1&rel=0&disablekb=1&fs=0&iv_load_policy=3`;
   }
 }
 
@@ -103,40 +103,5 @@ function setupTilt() {
   });
 }
 
-function enableBackgroundAudio() {
-  let soundActivated = false;
-
-  const activateSound = () => {
-    if (soundActivated) {
-      return;
-    }
-
-    soundActivated = true;
-    backgroundVideo.contentWindow?.postMessage(
-      JSON.stringify({
-        event: "command",
-        func: "unMute",
-        args: [],
-      }),
-      "*",
-    );
-    backgroundVideo.contentWindow?.postMessage(
-      JSON.stringify({
-        event: "command",
-        func: "playVideo",
-        args: [],
-      }),
-      "*",
-    );
-
-    window.removeEventListener("pointerdown", activateSound);
-    window.removeEventListener("keydown", activateSound);
-  };
-
-  window.addEventListener("pointerdown", activateSound, { once: true });
-  window.addEventListener("keydown", activateSound, { once: true });
-}
-
 applyProfileContent();
 setupTilt();
-enableBackgroundAudio();

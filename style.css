@@ -64,8 +64,8 @@ input {
   width: max(177.78vh, 100vw);
   height: max(100vh, 56.25vw);
   border: 0;
-  transform: translate(-50%, -50%) scale(1.2);
-  filter: saturate(1.15) contrast(1.05) brightness(0.42);
+  transform: translate(-50%, -50%) scale(1.24);
+  filter: saturate(1.08) contrast(1.04) brightness(0.32);
 }
 
 .video-shade,
