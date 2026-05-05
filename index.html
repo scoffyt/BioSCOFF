@@ -17,12 +17,20 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+    <div class="video-background" aria-hidden="true">
+      <iframe
+        id="backgroundVideo"
+        src="https://www.youtube-nocookie.com/embed/ZMOjfn-wyOQ?autoplay=1&controls=0&showinfo=0&modestbranding=1&loop=1&playlist=ZMOjfn-wyOQ&playsinline=1&rel=0&mute=1&enablejsapi=1"
+        title="Background video"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        tabindex="-1"
+      ></iframe>
+    </div>
 
     <div class="backdrop" aria-hidden="true">
-      <div class="nebula nebula-a"></div>
-      <div class="nebula nebula-b"></div>
-      <div class="nebula nebula-c"></div>
+      <div class="video-shade"></div>
+      <div class="video-vignette"></div>
       <div class="grid-glow"></div>
     </div>
 
@@ -51,7 +59,7 @@
           <div class="hero-tags" id="heroTags">
             <span>3D vibes</span>
             <span>animated bg</span>
-            <span>music player</span>
+            <span>video background</span>
           </div>
 
           <nav class="socials" aria-label="Redes sociais">
@@ -117,54 +125,6 @@
             transições suaves em desktop e mobile.
           </p>
         </article>
-      </section>
-
-      <section class="player-panel tilt-card" data-tilt>
-        <div class="player-top">
-          <div class="album-art" id="albumArt">
-            <span id="albumGlyph">01</span>
-          </div>
-
-          <div class="player-meta">
-            <p class="card-label">now playing</p>
-            <h2 id="trackTitle">Neon Skyline</h2>
-            <p id="trackArtist">SCOFF x Night Pulse</p>
-
-            <div class="player-controls">
-              <button class="control control-main" id="playButton" type="button" aria-label="Tocar ou pausar">
-                <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8 5.5v13l10-6.5-10-6.5Z"></path>
-                </svg>
-              </button>
-              <button class="control" id="prevButton" type="button" aria-label="Faixa anterior">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 5h2v14H6zM18 6.2 9.8 12 18 17.8V6.2Z"></path>
-                </svg>
-              </button>
-              <button class="control" id="nextButton" type="button" aria-label="Próxima faixa">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M16 5h2v14h-2zM6 17.8 14.2 12 6 6.2v11.6Z"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-wrap">
-          <span id="currentTime">0:00</span>
-          <input
-            id="progress"
-            type="range"
-            min="0"
-            max="100"
-            value="0"
-            aria-label="Progresso da música"
-          />
-          <span id="duration">0:00</span>
-        </div>
-
-        <div class="playlist" id="playlist" aria-label="Playlist"></div>
-        <audio id="audio"></audio>
       </section>
     </main>
 
